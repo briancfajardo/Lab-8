@@ -1,15 +1,20 @@
-package com.numbergame.beans;
+package com.logicbig.example;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-
+@Component
 @ManagedBean(name = "guessBean")
 //@ApplicationScoped //Guarda la información en general y no por sesión
 @SessionScoped //Guarda la información por sesión y no por aplicación
-public class GuessBean {
+public class GuessBean implements Serializable {
     private int currentNumber;
     private int numAttempts;
     private int currentPrize;

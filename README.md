@@ -1,8 +1,8 @@
-# CVDS-Lab5
+# CVDS-Lab8
 
 ## Interantes:
 
-### Camilo Fajardo y Andrea Durán
+### Camilo Fajardo
 
 
 
