@@ -10,7 +10,7 @@
         <h:form id="guess_form">
             <p:panelGrid columns="2" layout="grid">
 
-                <p:outputLabel id="title" style="font-size: 1.5em; font-weight: bold" value="Intenta adivinar el número!"/>
+                <p:outputLabel id="title" style="font-size: 1.5em; font-weight: bold" value="#{userBean.message}"/>
                 <p:outputLabel style="display: none;" value="#{guessBean.currentNumber}"/>
                 <p:panelGrid columns="1" layout="grid">
                     <p:outputLabel value=" #{guessBean.gameStatus} "/>

@@ -1,12 +1,13 @@
-package edu.eci.cvds.servlet;
-import edu.eci.cvds.servlet.model.Todo;
+package com.servlet;
+import com.servlet.model.Todo;
+import org.springframework.stereotype.Component;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Writer;
-import java.net.MalformedURLException;
 import java.nio.charset.MalformedInputException;
 import java.util.Optional;
+import javax.faces.bean.ManagedBean;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,8 @@ import java.util.*;
 @WebServlet(
     urlPatterns = "/onlineServlet"
 )
-
+@Component
+@ManagedBean(name = "onlineServlet")
 public class OnlineServlet extends HttpServlet{
     
     static final long serialVersionUID = 35L;

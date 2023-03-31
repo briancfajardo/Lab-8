@@ -1,4 +1,4 @@
-package edu.eci.cvds.servlet;
+package com.servlet;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,9 +7,13 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import com.google.gson.Gson;
-import edu.eci.cvds.servlet.model.Todo;
+import com.servlet.model.Todo;
+import org.springframework.stereotype.Component;
 
+import javax.faces.bean.ManagedBean;
 
+@Component
+@ManagedBean(name = "Service")
 public class Service {
     public static Todo getTodo(int id) throws MalformedURLException, IOException {
 

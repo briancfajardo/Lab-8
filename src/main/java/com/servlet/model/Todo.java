@@ -1,4 +1,4 @@
-package edu.eci.cvds.servlet.model;
+package com.servlet.model;
 
 public class Todo {
 

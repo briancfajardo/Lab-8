@@ -1,7 +1,10 @@
-package edu.eci.cvds.servlet;
+package com.servlet;
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Optional;
+import javax.faces.bean.ManagedBean;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(
     urlPatterns = "/helloServlet"
 )
-
-
+@Component
+@ManagedBean(name = "helloServlet")
 public class SampleServlet extends HttpServlet{
     
     static final long serialVersionUID = 35L;
