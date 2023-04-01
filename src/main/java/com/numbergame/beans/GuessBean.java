@@ -1,6 +1,9 @@
 package com.numbergame.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
@@ -16,8 +19,9 @@ import java.util.Random;
 @SessionScoped //Guarda la información por sesión y no por aplicación
 public class GuessBean implements Serializable {
 
+    @Autowired
+    ConfigurationService configurationService;
     private int currentNumber;
-
     private int numAttempts;
     private int currentPrize;
     private String gameStatus = "";
@@ -91,13 +95,21 @@ public class GuessBean implements Serializable {
             }
         }
     }
+    @Bean
+    public CommandLineRunner currentPrice() throws Exception {
+        return args -> {
+            //configurationService.addConfiguration(new ConfigutationB("Premio","100000"));
+            configurationService.getAllConfiguration().forEach(configutationB -> System.out.println(configutationB));
+            currentPrize = Integer.parseInt(configurationService.getConfiguratio(13L).getValor());
 
+        };
+    }
     public void restart() {
         Random random = new Random();
         currentNumber = random.nextInt(100) + 1;
         numAttempts = 0;
-        currentPrize = 100000;
         guessNumber = 0;
+        currentPrize = 100000;
         failedAttempts = new ArrayList<>();
     }
 }

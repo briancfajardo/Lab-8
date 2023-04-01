@@ -1,5 +1,9 @@
 package com;
 
+import com.numbergame.beans.ConfigurationService;
+import com.numbergame.beans.ConfigutationB;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -10,7 +14,8 @@ import java.util.Arrays;
 
 @SpringBootApplication
 public class Main{
-
+    @Autowired
+    ConfigurationService configurationService;
     public static void main (String[] args) {
         SpringApplication.run(Main.class, args);
     }
@@ -26,5 +31,12 @@ public class Main{
         srb.setUrlMappings(Arrays.asList("*.xhtml"));
         srb.setLoadOnStartup(1);
         return srb;
+    }
+    @Bean
+    public CommandLineRunner run() throws Exception {
+        return (args) -> {
+            System.out.println("Adding properties....\n");
+
+        };
     }
 }
