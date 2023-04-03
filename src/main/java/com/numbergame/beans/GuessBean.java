@@ -24,13 +24,13 @@ public class GuessBean implements Serializable {
     private int currentNumber;
     private int numAttempts;
     private int currentPrize;
+    private int prize;
     private String gameStatus = "";
     private int guessNumber;
     private ArrayList<Integer> failedAttempts;
 
     public GuessBean() {
         gameStatus = "Comenzar a jugar ";
-        restart();
     }
 
     public ArrayList<Integer> getFailedAttempts() {
@@ -98,10 +98,10 @@ public class GuessBean implements Serializable {
     @Bean
     public CommandLineRunner currentPrice() throws Exception {
         return args -> {
-            //configurationService.addConfiguration(new ConfigutationB("Premio","100000"));
+            configurationService.addConfiguration(new ConfigutationB("Premio","100000"));
             configurationService.getAllConfiguration().forEach(configutationB -> System.out.println(configutationB));
-            currentPrize = Integer.parseInt(configurationService.getConfiguratio(13L).getValor());
-
+            prize = Integer.parseInt(configurationService.getConfiguration("Premio").getValor());
+            restart();
         };
     }
     public void restart() {
@@ -109,7 +109,7 @@ public class GuessBean implements Serializable {
         currentNumber = random.nextInt(100) + 1;
         numAttempts = 0;
         guessNumber = 0;
-        currentPrize = 100000;
+        currentPrize = prize;
         failedAttempts = new ArrayList<>();
     }
 }

@@ -10,7 +10,7 @@ public class UserBean implements Serializable {
     private String message;
     public UserBean() {
         this.name = "";
-        this.message = "Bienvendid@ ";
+        this.message = "Bienvenid@ ";
     }
     public void setMessage(String message) {
         this.message = message;

@@ -15,14 +15,14 @@ public class ConfigurationService {
     public ConfigutationB addConfiguration(ConfigutationB configutationB){
         return configurationRepository.save(configutationB);
     }
-    public ConfigutationB getConfiguratio (Long propiedadId){
-        return configurationRepository.findById(propiedadId).get();
+    public ConfigutationB getConfiguration (String propiedadId){
+        return configurationRepository.findById(propiedadId);
     }
     public List<ConfigutationB> getAllConfiguration(){
         return configurationRepository.findAll();
     }
     public ConfigutationB updateConfiguration(ConfigutationB configutationB){
-        if(configurationRepository.existsById(configutationB.getPropiedadId())){
+        if(configurationRepository.existsById(configutationB.getId())){
             return configurationRepository.save(configutationB);
         }
         return null;

@@ -1,41 +1,34 @@
 package com.numbergame.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
+@Table(name = "CONFIGURATION")
 public class ConfigutationB {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String propiedad;
+    @Column(name = "PROPIEDAD")
+    private String id;
+    @Column(name = "VALOR")
     private String valor;
 
-    public ConfigutationB(String propiedad, String valor) {
-        this.propiedad = propiedad;
+    public ConfigutationB(String id, String valor) {
+        this.id = id;
         this.valor = valor;
     }
 
     public ConfigutationB() {
 
     }
-
-    public void setPropiedadId(Long propiedadId) {
-        this.id = id;
+    public void setId(String propiedad) {
+        this.id = propiedad;
     }
 
-    public Long getPropiedadId() {
+    public String getId() {
         return id;
-    }
-    public void setPropiedad(String propiedad) {
-        this.propiedad = propiedad;
-    }
-
-    public String getPropiedad() {
-        return propiedad;
     }
 
     public void setValor(String valor) {
@@ -47,24 +40,23 @@ public class ConfigutationB {
     }
 
     @Override
+    public String toString() {
+        return "ConfigutationB{" +
+                "propiedad='" + id + '\'' +
+                ", valor='" + valor + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ConfigutationB that = (ConfigutationB) o;
-        return Objects.equals(id, that.id) && Objects.equals(propiedad, that.propiedad) && Objects.equals(valor, that.valor);
+        return Objects.equals(id, that.id) && Objects.equals(valor, that.valor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, propiedad, valor);
-    }
-
-    @Override
-    public String toString() {
-        return "ConfigutationB{" +
-                "id=" + id +
-                ", propiedad='" + propiedad + '\'' +
-                ", valor='" + valor + '\'' +
-                '}';
+        return Objects.hash(id, valor);
     }
 }
